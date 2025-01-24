@@ -16,7 +16,7 @@ const Home = () => {
 
     useEffect(() => {
         const getAllData = async () => {
-            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/v1/users`);
+            const res = await axios.get(`https://crud-mania-backend.vercel.app/api/v1/users`);
             setUsers(res.data);
         }
         getAllData();
@@ -27,7 +27,7 @@ const Home = () => {
 
         try {
             // Make a POST request to the API with the input data
-            await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/v1/users`, input);
+            await axios.post(`https://crud-mania-backend.vercel.app/api/v1/users`, input);
 
             setRender(true);
             setInput({ name: "", email: "", age: "" });
@@ -37,7 +37,7 @@ const Home = () => {
     }
 
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:8000/api/v1/users/${id}`);
+        await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/v1/users/${id}`);
 
         const newUsers = users.filter((item)=>{
             return item._id !== id;
