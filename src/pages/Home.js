@@ -16,8 +16,8 @@ const Home = () => {
 
     useEffect(() => {
         const getAllData = async () => {
-            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/users`);
-    setUsers(res.data);
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/v1/users`);
+            setUsers(res.data);
         }
         getAllData();
     }, [render]);
@@ -27,7 +27,7 @@ const Home = () => {
 
         try {
             // Make a POST request to the API with the input data
-            await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/users`, input);
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/v1/users`, input);
 
             setRender(true);
             setInput({ name: "", email: "", age: "" });
